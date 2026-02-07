@@ -1,55 +1,54 @@
-# [PROJECT_NAME] Constitution
-<!-- Example: Spec Constitution, TaskFlow Constitution, etc. -->
+<!--
+Sync Impact Report:
+- Version change: N/A → 1.0.0 (initial constitution for Hackathon II - Todo App Evolution)
+- List of modified principles: None (new constitution)
+- Added sections: All sections (new constitution created)
+- Removed sections: None
+- Templates requiring updates: ⚠ pending - plan-template.md, spec-template.md, tasks-template.md need alignment with new principles
+- Follow-up TODOs: None
+-->
+# Hackathon II - Todo App Evolution Constitution
 
 ## Core Principles
 
-### [PRINCIPLE_1_NAME]
-<!-- Example: I. Library-First -->
-[PRINCIPLE_1_DESCRIPTION]
-<!-- Example: Every feature starts as a standalone library; Libraries must be self-contained, independently testable, documented; Clear purpose required - no organizational-only libraries -->
+### Spec-Driven Development (NON-NEGOTIABLE)
+All code must be generated via Claude Code from specs, no manual coding. All code changes must map back to spec/plan/tasks and be traceable through the development workflow.
 
-### [PRINCIPLE_2_NAME]
-<!-- Example: II. CLI Interface -->
-[PRINCIPLE_2_DESCRIPTION]
-<!-- Example: Every library exposes functionality via CLI; Text in/out protocol: stdin/args → stdout, errors → stderr; Support JSON + human-readable formats -->
+### Phase-Based Evolution
+Development follows 5 sequential phases: Console → Web → Chatbot → Local K8s → Cloud. Each phase must be completed before advancing to the next, with deployed applications and demo videos under 90 seconds for each phase submission.
 
-### [PRINCIPLE_3_NAME]
-<!-- Example: III. Test-First (NON-NEGOTIABLE) -->
-[PRINCIPLE_3_DESCRIPTION]
-<!-- Example: TDD mandatory: Tests written → User approved → Tests fail → Then implement; Red-Green-Refactor cycle strictly enforced -->
+### Monorepo Organization with Clean Code Standards
+Single repository with frontend/backend separation, using descriptive names, docstrings, and proper structure. Technology stack is fixed per phase as defined in the project requirements.
 
-### [PRINCIPLE_4_NAME]
-<!-- Example: IV. Integration Testing -->
-[PRINCIPLE_4_DESCRIPTION]
-<!-- Example: Focus areas requiring integration tests: New library contract tests, Contract changes, Inter-service communication, Shared schemas -->
+### AI-First Development with Security
+Use OpenAI Agents SDK, MCP tools for conversational interface, and Claude Code Subagents for reusable intelligence. Security & Secrets managed through environment variables, no hardcoded credentials, Better Auth with JWT for frontend/backend communication.
 
-### [PRINCIPLE_5_NAME]
-<!-- Example: V. Observability, VI. Versioning & Breaking Changes, VII. Simplicity -->
-[PRINCIPLE_5_DESCRIPTION]
-<!-- Example: Text I/O ensures debuggability; Structured logging required; Or: MAJOR.MINOR.BUILD format; Or: Start simple, YAGNI principles -->
+### Cloud-Native Architecture
+Use Docker, Kubernetes, event-driven architecture with Kafka and Dapr. Neon PostgreSQL for database (Phase II+), OpenAI ChatKit for chatbot UI (Phase III+). WSL 2 required for Windows users for all development commands.
 
-### [PRINCIPLE_6_NAME]
+### Traceability and Compliance
+All phases must have working applications with specs/plan/tasks traceable for every feature. Success criteria include completed phases with deployed applications and demo videos demonstrating features.
 
+## Technology Stack Requirements
 
-[PRINCIPLE__DESCRIPTION]
+Phase I: Python 3.13+, uv, Claude Code, Spec-Kit Plus, in-memory storage
+Phase II: Next.js 16+, FastAPI, SQLModel, Neon PostgreSQL, Better Auth with JWT
+Phase III: OpenAI ChatKit, OpenAI Agents SDK, Official MCP SDK, stateless chat endpoint
+Phase IV: Docker, Minikube, Helm charts, kubectl-ai, Kagent, Gordon (Docker AI)
+Phase V: Kafka (Redpanda/Strimzi), Dapr, DigitalOcean DOKS/Azure AKS/Google GKE, event-driven architecture
 
-## [SECTION_2_NAME]
-<!-- Example: Additional Constraints, Security Requirements, Performance Standards, etc. -->
+## Development Workflow
 
-[SECTION_2_CONTENT]
-<!-- Example: Technology stack requirements, compliance standards, deployment policies, etc. -->
-
-## [SECTION_3_NAME]
-<!-- Example: Development Workflow, Review Process, Quality Gates, etc. -->
-
-[SECTION_3_CONTENT]
-<!-- Example: Code review requirements, testing gates, deployment approval process, etc. -->
+Spec-Driven Development (NON-NEGOTIABLE) - All code must be generated via Claude Code from specs, no manual coding
+Monorepo Organization - Single repository with frontend/backend separation
+Clean Code Standards - Descriptive names, docstrings, proper structure
+WSL 2 for Windows - Use WSL 2 for all development commands
+Security & Secrets - Environment variables, no hardcoded credentials
+AI-First Development - OpenAI Agents SDK, MCP tools for conversational interface
+Cloud-Native Architecture - Docker, Kubernetes, event-driven with Kafka and Dapr
 
 ## Governance
-<!-- Example: Constitution supersedes all other practices; Amendments require documentation, approval, migration plan -->
 
-[GOVERNANCE_RULES]
-<!-- Example: All PRs/reviews must verify compliance; Complexity must be justified; Use [GUIDANCE_FILE] for runtime development guidance -->
+This constitution supersedes all other development practices for the Hackathon II - Todo App Evolution project. All code changes must map back to spec/plan/tasks. Amendments require documentation, team approval, and migration plan. All PRs/reviews must verify compliance with Spec-Driven Development and Phase-Based Evolution requirements. No manual coding is allowed - must use spec-driven workflow. All phases must be completed in order with deployed applications and demo videos.
 
-**Version**: [CONSTITUTION_VERSION] | **Ratified**: [RATIFICATION_DATE] | **Last Amended**: [LAST_AMENDED_DATE]
-<!-- Example: Version: 2.1.1 | Ratified: 2025-06-13 | Last Amended: 2025-07-16 -->
+**Version**: 1.0.0 | **Ratified**: 2026-02-08 | **Last Amended**: 2026-02-08
