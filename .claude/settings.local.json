@@ -1,0 +1,31 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(.specify/scripts/bash/check-prerequisites.sh:*)",
+      "Bash(.specify/scripts/bash/create-phr.sh:*)",
+      "Bash(test:*)",
+      "Bash(python -m pytest:*)",
+      "Bash(uv:*)",
+      "Bash(python -m pip install:*)",
+      "Bash(python -m src.todo_app:*)",
+      "Bash(git remote add:*)",
+      "Bash(git remote set-url:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git push:*)",
+      "Bash(git checkout:*)",
+      "Bash(git fetch:*)",
+      "Bash(ls:*)",
+      "Bash(.specify/scripts/bash/create-new-feature.sh --json --number 2 --short-name \"web-todo\" \"Phase II: Web-Based Todo Application with PostgreSQL\n\nTransform the console todo application into a full-stack web application with persistent storage.\n\nCore Features:\n1. User Authentication - Secure login/signup with Better Auth and JWT tokens\n2. Web Interface - Modern, responsive UI built with Next.js 16+\n3. Persistent Storage - PostgreSQL database via Neon for data persistence\n4. REST API - FastAPI backend with SQLModel for database operations\n5. All Phase I Features - Maintain CRUD operations: Add, View, Update, Delete, Mark Complete\")",
+      "Bash(.specify/scripts/bash/setup-plan.sh:*)",
+      "Bash(.specify/scripts/bash/update-agent-context.sh:*)",
+      "Bash(\"D:/h2p1/specs/002-web-todo/plan.md\" << 'EOF'\n\n---\n\n## Phase 0 & Phase 1 Completion Summary\n\n### Phase 0: Research ✅\n\n**Artifact**: `research.md`\n\n**Completed Research**:\n1. ✅ Better Auth JWT Plugin integration strategy\n2. ✅ API endpoint design with user_id in path\n3. ✅ Task filtering implementation approach \\(client-side Phase II\\)\n4. ✅ Database schema and migration strategy \\(SQLModel + Alembic\\)\n5. ✅ CORS configuration for frontend-backend communication\n6. ✅ Environment variables and secret management\n7. ✅ Testing strategy \\(pytest, Vitest, Playwright\\)\n8. ✅ Deployment strategy \\(Vercel, Railway, Neon\\)\n\n**Key Decisions**:\n- Use Better Auth JWT plugin for token generation\n- Validate JWT on backend with shared BETTER_AUTH_SECRET\n- Include user_id in URL path for explicit authorization\n- Client-side task filtering for Phase II \\(API supports server-side for future\\)\n- SQLModel for type-safe ORM with Alembic migrations\n- Neon Serverless PostgreSQL for database\n\n### Phase 1: Design & Contracts ✅\n\n**Artifacts**:\n- `data-model.md` - Database schema with User and Task entities\n- `contracts/api-spec.yaml` - OpenAPI 3.0 specification for all 9 endpoints\n- `quickstart.md` - Local setup and deployment guide\n\n**Data Model**:\n- User entity: id, email \\(unique\\), password_hash, created_at\n- Task entity: id, user_id \\(FK\\), title, description, completed, created_at, updated_at\n- Relationship: User 1:N Task\n- Indexes: email \\(unique\\), user_id, \\(user_id, created_at\\)\n\n**API Contracts**:\n- 3 Authentication endpoints: /api/auth/signup, /api/auth/signin, /api/auth/signout\n- 6 Task endpoints: GET/POST /api/{user_id}/tasks, GET/PUT/DELETE/PATCH /api/{user_id}/tasks/{task_id}\n- All task endpoints require JWT authorization\n- All task endpoints validate path user_id matches JWT user_id\n\n**Project Structure**:\n- Monorepo: frontend/ and backend/ directories\n- Frontend: Next.js 16+ App Router with TypeScript and Tailwind CSS\n- Backend: FastAPI with SQLModel, Pydantic validation, JWT middleware\n- Phase I console app preserved in src/ \\(not modified\\)\n\n**Agent Context Updated**:\n- CLAUDE.md updated with Phase II technology stack\n- Added Better Auth, Next.js 16+, FastAPI, SQLModel, Neon PostgreSQL context\n\n### Re-evaluated Constitution Check ✅\n\nAll gates still pass after design phase:\n\n✅ **Spec-Driven Development**: Plan follows spec-driven workflow\n✅ **Phase-Based Evolution**: Correct sequence \\(Phase I complete → Phase II design\\)\n✅ **Technology Stack**: All choices match constitution Phase II requirements\n✅ **Monorepo Organization**: frontend/ and backend/ structure defined\n✅ **Security & Secrets**: All secrets in environment variables\n✅ **Clean Code Standards**: Docstrings, type hints, descriptive naming planned\n✅ **Traceability**: All artifacts link back to spec.md\n\n**Gate Status**: ✅ PASS - Ready for `/sp.tasks` to generate task breakdown\n\n---\n\n## Next Phase\n\n**Command**: `/sp.tasks`\n\n**Purpose**: Generate tasks.md with detailed implementation tasks based on:\n- Feature spec \\(spec.md\\)\n- Implementation plan \\(this file\\)\n- Research decisions \\(research.md\\)\n- Data model \\(data-model.md\\)\n- API contracts \\(contracts/api-spec.yaml\\)\n\n**Expected Output**:\n- Dependency-ordered tasks for frontend and backend implementation\n- Test-first tasks \\(write tests before implementation\\)\n- Tasks organized by user story for traceability\n- Parallel execution opportunities marked\n\nEOF)",
+      "Bash(if [ -d \"D:/h2p1/specs/002-web-todo/checklists\" ])",
+      "Bash(then find \"D:/h2p1/specs/002-web-todo/checklists\" -name \"*.md\" -type f)",
+      "Bash(else echo \"No checklists directory\")",
+      "Bash(fi)",
+      "Bash(\"D:/h2p1/.gitignore\" << 'EOF'\n\n# Node.js\nnode_modules/\nnpm-debug.log*\nyarn-debug.log*\nyarn-error.log*\npnpm-debug.log*\nlerna-debug.log*\n\n# Next.js\n.next/\nout/\n.vercel\n\n# TypeScript\n*.tsbuildinfo\nnext-env.d.ts\n\n# Package manager locks \\(optional - uncomment if you want to ignore\\)\n# package-lock.json\n# yarn.lock\n# pnpm-lock.yaml\n\nEOF)",
+      "Bash(npx:*)"
+    ]
+  }
+}
