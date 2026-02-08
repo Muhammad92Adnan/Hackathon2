@@ -1,4 +1,6 @@
 // src/components/TaskFilter.tsx
+'use client';
+
 import { useState } from 'react';
 
 interface TaskFilterProps {

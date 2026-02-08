@@ -1,4 +1,6 @@
 // src/components/TaskForm.tsx
+'use client';
+
 import { useState } from 'react';
 import { useTasks } from '@/hooks/useTasks';
 

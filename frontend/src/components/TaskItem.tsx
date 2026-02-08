@@ -1,4 +1,6 @@
 // src/components/TaskItem.tsx
+'use client';
+
 import { useState } from 'react';
 import { Task, UpdateTaskRequest } from '@/lib/types';
 import { useTasks } from '@/hooks/useTasks';

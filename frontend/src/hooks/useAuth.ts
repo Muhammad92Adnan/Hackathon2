@@ -1,4 +1,6 @@
 // src/hooks/useAuth.ts
+'use client';
+
 import { useState, useEffect } from 'react';
 import { apiClient } from '@/lib/api';
 import { User, AuthResponse, LoginRequest, SignupRequest } from '@/lib/types';

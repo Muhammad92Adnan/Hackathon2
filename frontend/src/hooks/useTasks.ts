@@ -1,4 +1,6 @@
 // src/hooks/useTasks.ts
+'use client';
+
 import { useState } from 'react';
 import { apiClient } from '@/lib/api';
 import { Task, CreateTaskRequest, UpdateTaskRequest } from '@/lib/types';
